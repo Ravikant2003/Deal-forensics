@@ -93,6 +93,61 @@ deal_forensics/
   - Real-time analysis visualization
   - Results presentation layer
 
+
+
+```markdown
+## 🎯 Prompt Engineering Architecture
+
+This project implements **Structured JSON Prompting** with **Role-Based Context** across a multi-agent system.
+
+### **Agent-Specific Prompt Design**
+
+#### **Timeline Agent** - Analytical Prompting
+```python
+# Forensic analysis with structured output
+- Critical moment identification
+- Warning signal detection
+- Failure point analysis
+- Response time evaluation
+- Timeline scoring (1-10)
+```
+
+#### **Comparative Agent** - RAG-Augmented Prompting
+```python
+# Comparative analysis with retrieved context
+- Strategy comparison (won vs lost)
+- Response time benchmarking
+- Competitive positioning analysis
+- Success factor identification
+```
+
+#### **Playbook Agent** - Action-Oriented Prompting
+```python
+# Actionable output generation
+- Immediate action steps
+- Trigger-based responses
+- Escalation protocols
+- Success metrics definition
+```
+
+### **Key Prompt Engineering Features**
+
+| Feature | Implementation | Benefit |
+|---------|---------------|---------|
+| **Structured Output** | Enforced JSON schema | Programmatic processing |
+| **Role-Based Context** | Specialized agent personas | Domain-specific reasoning |
+| **Constrained Generation** | Defined value ranges | Quality control |
+| **RAG Integration** | Context-augmented prompts | Historical pattern matching |
+
+### **Prompt Quality Highlights**
+✅ Consistent structure across all agents  
+✅ Sales domain-specific terminology  
+✅ Action-oriented, measurable outputs  
+✅ Production-ready JSON responses  
+✅ Multi-step reasoning capability
+```
+
+
 ### **🤖 AI Agents System**
 
 #### **1. Timeline Agent** (`agents/timeline_agent.py`)
