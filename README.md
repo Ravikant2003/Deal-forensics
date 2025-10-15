@@ -85,7 +85,7 @@ deal_forensics/
 ---
 
 
-```markdown
+
 ## 🎯 Prompt Engineering Architecture
 
 This project implements **Structured JSON Prompting** with **Role-Based Context** across a multi-agent system.
