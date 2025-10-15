@@ -1,0 +1,142 @@
+{
+  "sales_team": [
+    {
+      "name": "John Doe",
+      "region": "North America",
+      "specialization": "Technology",
+      "win_rate": 0.35,
+      "avg_deal_size": 45000,
+      "active_deals": 12
+    },
+    {
+      "name": "Jane Smith",
+      "region": "Europe",
+      "specialization": "SaaS",
+      "win_rate": 0.42,
+      "avg_deal_size": 38000,
+      "active_deals": 8
+    },
+    {
+      "name": "Mike Johnson",
+      "region": "North America",
+      "specialization": "Enterprise",
+      "win_rate": 0.28,
+      "avg_deal_size": 110000,
+      "active_deals": 6
+    },
+    {
+      "name": "Sarah Wilson",
+      "region": "Asia",
+      "specialization": "Retail",
+      "win_rate": 0.48,
+      "avg_deal_size": 52000,
+      "active_deals": 10
+    },
+    {
+      "name": "Tom Brown",
+      "region": "Europe",
+      "specialization": "E-commerce",
+      "win_rate": 0.55,
+      "avg_deal_size": 68000,
+      "active_deals": 9
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Competitor A",
+      "strengths": ["Lower pricing", "Established brand"],
+      "weaknesses": ["Limited features", "Poor support"],
+      "common_mentions": ["price", "cost", "budget"]
+    },
+    {
+      "name": "Competitor B",
+      "strengths": ["Better integrations", "Technical features"],
+      "weaknesses": ["Complex setup", "Higher learning curve"],
+      "common_mentions": ["integration", "technical", "api"]
+    },
+    {
+      "name": "Competitor C",
+      "strengths": ["Enterprise features", "Security compliance"],
+      "weaknesses": ["Slow implementation", "Rigid contracts"],
+      "common_mentions": ["enterprise", "security", "compliance"]
+    },
+    {
+      "name": "Competitor D",
+      "strengths": ["Industry specialization", "Custom solutions"],
+      "weaknesses": ["Limited scalability", "Higher cost"],
+      "common_mentions": ["industry", "custom", "specialized"]
+    }
+  ],
+  "performance_metrics": {
+    "overall_win_rate": 0.38,
+    "avg_sales_cycle": 14.5,
+    "avg_deal_size": 62500,
+    "top_loss_reasons": {
+      "pricing": 0.35,
+      "technical": 0.25,
+      "timing": 0.20,
+      "competitor": 0.15,
+      "value_prop": 0.05
+    },
+    "response_time_metrics": {
+      "initial_contact_avg_hours": 4.2,
+      "proposal_followup_avg_hours": 18.7,
+      "objection_response_avg_hours": 6.1
+    },
+    "regional_performance": {
+      "North America": {"win_rate": 0.32, "avg_deal_size": 78000},
+      "Europe": {"win_rate": 0.45, "avg_deal_size": 52000},
+      "Asia": {"win_rate": 0.41, "avg_deal_size": 48000}
+    }
+  },
+  "playbook_templates": {
+    "competitor_responses": {
+      "Competitor A": {
+        "pricing_objection": "While Competitor A may have lower initial pricing, our ROI analysis shows 3x return within 12 months due to higher efficiency gains.",
+        "key_messages": ["Proven ROI", "Superior support", "Continuous innovation"]
+      },
+      "Competitor B": {
+        "technical_objection": "Unlike Competitor B, we offer seamless integration with your existing stack and dedicated technical support.",
+        "key_messages": ["Easy integration", "Comprehensive support", "User-friendly interface"]
+      },
+      "Competitor C": {
+        "enterprise_objection": "We provide enterprise-grade security with faster implementation and more flexible terms than Competitor C.",
+        "key_messages": ["Quick deployment", "Flexible contracts", "Enterprise security"]
+      }
+    },
+    "common_triggers": {
+      "budget_concern": {
+        "immediate_action": "Send ROI calculator and case studies",
+        "timeframe": "Within 4 hours",
+        "follow_up": "Schedule value demonstration"
+      },
+      "competitor_mention": {
+        "immediate_action": "Send competitive comparison guide",
+        "timeframe": "Within 2 hours", 
+        "follow_up": "Address specific differentiators"
+      },
+      "technical_concern": {
+        "immediate_action": "Schedule technical deep-dive",
+        "timeframe": "Within 6 hours",
+        "follow_up": "Provide integration documentation"
+      }
+    }
+  },
+  "customer_segments": {
+    "tech_startups": {
+      "key_characteristics": ["Fast decision cycles", "Budget conscious", "Technical focus"],
+      "winning_strategies": ["Quick demos", "Flexible pricing", "Technical credibility"],
+      "common_pitfalls": ["Long sales cycles", "Overly complex proposals"]
+    },
+    "enterprise": {
+      "key_characteristics": ["Multiple stakeholders", "Long sales cycles", "Security focus"],
+      "winning_strategies": ["Executive engagement", "Phased implementation", "Security documentation"],
+      "common_pitfalls": ["Ignoring legal/security", "Single stakeholder focus"]
+    },
+    "sme": {
+      "key_characteristics": ["Value focused", "Quick ROI needed", "Limited resources"],
+      "winning_strategies": ["Clear ROI", "Easy implementation", "Strong support"],
+      "common_pitfalls": ["Over-engineered solutions", "Poor cost justification"]
+    }
+  }
+}

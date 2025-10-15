@@ -1,0 +1,150 @@
+{
+  "lost_deals": [
+    {
+      "deal_id": "LD-001",
+      "company": "TechCorp Inc",
+      "value": 50000,
+      "industry": "Technology",
+      "timeline": [
+        {"day": 1, "event": "Initial contact", "details": "Positive response, requested demo"},
+        {"day": 3, "event": "Sent proposal", "details": "Delayed by 48 hours due to internal review"},
+        {"day": 7, "event": "Budget discussion", "details": "Client mentioned Competitor A has lower pricing"},
+        {"day": 10, "event": "No response", "details": "Ghosted after pricing discussion"},
+        {"day": 14, "event": "Follow-up", "details": "No response to follow-up email"}
+      ],
+      "competitors": ["Competitor A"],
+      "loss_reason": "pricing",
+      "sales_rep": "John Doe",
+      "region": "North America"
+    },
+    {
+      "deal_id": "LD-002",
+      "company": "StartupXYZ",
+      "value": 35000,
+      "industry": "SaaS",
+      "timeline": [
+        {"day": 1, "event": "Initial contact", "details": "Quick response, very interested"},
+        {"day": 2, "event": "Demo scheduled", "details": "Demo booked for next day"},
+        {"day": 3, "event": "Product demo", "details": "Went well, positive feedback"},
+        {"day": 5, "event": "Technical concerns", "details": "Raised integration issues"},
+        {"day": 8, "event": "No response", "details": "Ghosted after technical discussion"},
+        {"day": 12, "event": "Lost to competitor", "details": "Chose Competitor B for better integration"}
+      ],
+      "competitors": ["Competitor B"],
+      "loss_reason": "technical",
+      "sales_rep": "Jane Smith",
+      "region": "Europe"
+    },
+    {
+      "deal_id": "LD-003",
+      "company": "EnterpriseCo",
+      "value": 120000,
+      "industry": "Enterprise",
+      "timeline": [
+        {"day": 1, "event": "Initial contact", "details": "Enterprise lead, multiple stakeholders"},
+        {"day": 2, "event": "Discovery call", "details": "Complex requirements identified"},
+        {"day": 4, "event": "Sent proposal", "details": "Custom enterprise solution"},
+        {"day": 8, "event": "Legal review", "details": "Stuck in legal department"},
+        {"day": 15, "event": "Timing issues", "details": "Client postponed to next quarter"},
+        {"day": 20, "event": "Deal lost", "details": "Budget reallocated to other projects"}
+      ],
+      "competitors": ["Competitor C"],
+      "loss_reason": "timing",
+      "sales_rep": "Mike Johnson",
+      "region": "North America"
+    },
+    {
+      "deal_id": "LD-004",
+      "company": "GlobalRetail Inc",
+      "value": 75000,
+      "industry": "Retail",
+      "timeline": [
+        {"day": 1, "event": "Initial contact", "details": "Referral from partner"},
+        {"day": 2, "event": "Competitor mentioned", "details": "Client using Competitor D currently"},
+        {"day": 3, "event": "Value prop discussion", "details": "Focused on cost savings"},
+        {"day": 6, "event": "Pricing sent", "details": "Standard pricing without customization"},
+        {"day": 10, "event": "No decision", "details": "Client decided to stick with current solution"},
+        {"day": 14, "event": "Deal lost", "details": "Insufficient value differentiation"}
+      ],
+      "competitors": ["Competitor D"],
+      "loss_reason": "value_prop",
+      "sales_rep": "Sarah Wilson",
+      "region": "Asia"
+    }
+  ],
+  "won_deals": [
+    {
+      "deal_id": "WD-001",
+      "company": "GrowthLabs",
+      "value": 75000,
+      "industry": "Tech Startup",
+      "timeline": [
+        {"day": 1, "event": "Initial contact", "details": "Inbound lead, responded within 1 hour"},
+        {"day": 1, "event": "Qualification call", "details": "Same day qualification call"},
+        {"day": 2, "event": "Budget discussion", "details": "Sent ROI calculator within 4 hours"},
+        {"day": 3, "event": "Product demo", "details": "Customized demo based on specific needs"},
+        {"day": 5, "event": "Proposal sent", "details": "Personalized proposal with relevant case studies"},
+        {"day": 7, "event": "Contract signed", "details": "Closed within 7 days total"}
+      ],
+      "competitors": ["Competitor A"],
+      "win_reason": "quick_response",
+      "sales_rep": "Sarah Wilson",
+      "region": "North America"
+    },
+    {
+      "deal_id": "WD-002",
+      "company": "ScaleFast Inc",
+      "value": 95000,
+      "industry": "E-commerce",
+      "timeline": [
+        {"day": 1, "event": "Initial contact", "details": "Referral from existing client"},
+        {"day": 2, "event": "Competitor mentioned", "details": "Immediately sent competitive comparison guide"},
+        {"day": 3, "event": "Technical demo", "details": "Addressed all integration concerns proactively"},
+        {"day": 4, "event": "ROI analysis", "details": "Detailed ROI calculation provided"},
+        {"day": 6, "event": "Proposal sent", "details": "Competitive pricing with added value services"},
+        {"day": 8, "event": "Contract signed", "details": "Won against Competitor B"}
+      ],
+      "competitors": ["Competitor B"],
+      "win_reason": "competitive_positioning",
+      "sales_rep": "Tom Brown",
+      "region": "Europe"
+    },
+    {
+      "deal_id": "WD-003",
+      "company": "DataFlow Systems",
+      "value": 150000,
+      "industry": "Enterprise",
+      "timeline": [
+        {"day": 1, "event": "Initial contact", "details": "Enterprise lead from marketing campaign"},
+        {"day": 2, "event": "Multi-stakeholder meeting", "details": "Engaged with IT, finance, and operations"},
+        {"day": 4, "event": "Custom demo", "details": "Tailored demo for each department's needs"},
+        {"day": 7, "event": "Executive briefing", "details": "C-level presentation with ROI focus"},
+        {"day": 10, "event": "Proposal sent", "details": "Phased implementation approach"},
+        {"day": 15, "event": "Legal review", "details": "Quick turnaround on legal documents"},
+        {"day": 18, "event": "Contract signed", "details": "Enterprise deal closed"}
+      ],
+      "competitors": ["Competitor C"],
+      "win_reason": "enterprise_approach",
+      "sales_rep": "Mike Johnson",
+      "region": "North America"
+    },
+    {
+      "deal_id": "WD-004",
+      "company": "RetailChain Pro",
+      "value": 60000,
+      "industry": "Retail",
+      "timeline": [
+        {"day": 1, "event": "Initial contact", "details": "Trade show connection"},
+        {"day": 2, "event": "Industry insights", "details": "Shared retail-specific case studies"},
+        {"day": 3, "event": "Pilot discussion", "details": "Offered 30-day pilot program"},
+        {"day": 5, "event": "Pilot started", "details": "Quick setup and onboarding"},
+        {"day": 15, "event": "Pilot results", "details": "Demonstrated 25% efficiency improvement"},
+        {"day": 18, "event": "Contract signed", "details": "Expanded to full implementation"}
+      ],
+      "competitors": ["Competitor D"],
+      "win_reason": "pilot_success",
+      "sales_rep": "Jane Smith",
+      "region": "Asia"
+    }
+  ]
+}
