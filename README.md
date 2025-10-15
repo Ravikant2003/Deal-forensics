@@ -84,16 +84,6 @@ deal_forensics/
 
 ---
 
-## 🔍 Detailed File Descriptions
-
-### **Core Application**
-- **`main.py`** - Streamlit web application with interactive dashboard
-  - Deal selection interface
-  - Multi-agent orchestration
-  - Real-time analysis visualization
-  - Results presentation layer
-
-
 
 ```markdown
 ## 🎯 Prompt Engineering Architecture
@@ -146,6 +136,17 @@ This project implements **Structured JSON Prompting** with **Role-Based Context*
 ✅ Production-ready JSON responses  
 ✅ Multi-step reasoning capability
 
+
+
+
+## 🔍 Detailed File Descriptions
+
+### **Core Application**
+- **`main.py`** - Streamlit web application with interactive dashboard
+  - Deal selection interface
+  - Multi-agent orchestration
+  - Real-time analysis visualization
+  - Results presentation layer
 
 
 ### **🤖 AI Agents System**
