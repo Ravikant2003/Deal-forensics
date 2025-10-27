@@ -39,7 +39,7 @@ graph TD
     B --> C[📊 Timeline Analysis]
     A --> D[🤖 RAG Retrieval]
     D --> E[📚 Similar Won Deals]
-    D --> E[📚 Similar Won Deals (Checked in ChromDB)]
+    D --> E[📚 Similar Won Deals ]
     E --> F[⚖️ Comparative Agent]
     F --> G[📈 Comparative Insights]
     C --> H[🎯 Playbook Agent]
