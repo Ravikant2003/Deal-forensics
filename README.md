@@ -33,26 +33,25 @@ Deal Forensics AI Pipeline:
         ├── Comparative Analytics
         └── Actionable Playbooks
 ```
-
-## 🔄 Workflow Diagram
-
+```mermaid
 graph TD
-    A[📥 Input: Lost Deal] --> B[🔍 Timeline Agent (Single-Deal Forensic Analysis)]
-    B --> C[📊 Timeline Analysis Output]
+    A[📥 Input: Lost Deal] --> B[🔍 Timeline Agent]
+    B --> C[📊 Timeline Analysis]
     A --> D[🤖 RAG Retrieval]
-    D --> E[📚 Similar Won Deals (Retrieved from ChromaDB)]
-    E --> F[⚖️ Comparative Agent (Lost vs Won Deal Analysis)]
-    F --> G[📈 Comparative Insights Output]
-    C --> H[🎯 Playbook Agent (Action Synthesis)]
+    D --> E[📚 Similar Won Deals]
+    D --> E[📚 Similar Won Deals (Checked in ChromDB)]
+    E --> F[⚖️ Comparative Agent]
+    F --> G[📈 Comparative Insights]
+    C --> H[🎯 Playbook Agent]
     G --> H
     H --> I[🛠️ Actionable Playbook]
     I --> J[📱 Streamlit Dashboard]
     
-    style A fill:#e1f5fe,stroke:#333,stroke-width:1px
-    style D fill:#fff3e0,stroke:#333,stroke-width:1px
-    style H fill:#e8f5e8,stroke:#333,stroke-width:1px
-    style J fill:#f3e5f5,stroke:#333,stroke-width:1px
-
+    style A fill:#e1f5fe
+    style D fill:#fff3e0
+    style H fill:#e8f5e8
+    style J fill:#f3e5f5
+```
 
 ---
 
