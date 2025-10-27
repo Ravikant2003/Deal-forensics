@@ -21,6 +21,8 @@ Deal Forensics AI Pipeline:
         │
     🔍 RAG System (ChromaDB)
         │
+    🎛️ Agent Orchestrator (Central LLM Controller)
+        │
     🤖 AI Agent Orchestration
         │
         ├── Timeline Agent (Forensic Analysis)
@@ -38,21 +40,25 @@ Deal Forensics AI Pipeline:
 
 ```mermaid
 graph TD
-    A[📥 Input: Lost Deal] --> B[🔍 Timeline Agent]
-    B --> C[📊 Timeline Analysis]
-    A --> D[🤖 RAG Retrieval]
-    D --> E[📚 Similar Won Deals]
-    E --> F[⚖️ Comparative Agent]
-    F --> G[📈 Comparative Insights]
-    C --> H[🎯 Playbook Agent]
-    G --> H
-    H --> I[🛠️ Actionable Playbook]
-    I --> J[📱 Streamlit Dashboard]
+    A[📥 Input: Lost Deal] --> B[🎛️ Agent Orchestrator]
+    B --> C[🔍 Timeline Agent]
+    C --> D[📊 Timeline Analysis]
+    A --> E[🤖 RAG Retrieval]
+    E --> F[📚 Similar Won Deals]
+    B --> G[⚖️ Comparative Agent]
+    F --> G
+    G --> H[📈 Comparative Insights]
+    D --> I[🎯 Playbook Agent]
+    H --> I
+    B --> I
+    I --> J[🛠️ Actionable Playbook]
+    J --> K[📱 Streamlit Dashboard]
     
     style A fill:#e1f5fe
-    style D fill:#fff3e0
-    style H fill:#e8f5e8
-    style J fill:#f3e5f5
+    style B fill:#ffe0b2
+    style E fill:#fff3e0
+    style I fill:#e8f5e8
+    style K fill:#f3e5f5
 ```
 
 ---
@@ -64,6 +70,7 @@ deal_forensics/
 ├── 🐍 main.py                          # Streamlit application entry point
 ├── 📁 agents/                          # AI Agent System
 │   ├── __init__.py
+│   ├── 🎛️ orchestrator.py             # Central LLM controller & agent base
 │   ├── 🕰️ timeline_agent.py           # Forensic timeline analysis
 │   ├── ⚖️ comparative_agent.py        # RAG-powered deal comparison  
 │   └── 🎯 playbook_agent.py           # Actionable playbook generation
@@ -153,6 +160,21 @@ This project implements **Structured JSON Prompting** with **Role-Based Context*
 
 ### **🤖 AI Agents System**
 
+#### **Agent Orchestrator** (`agents/orchestrator.py`)
+- **Purpose**: Central controller for all agent interactions and LLM communication
+- **Key Features**:
+  - Configures Gemini AI model with API key and model selection
+  - Generates responses for prompts with optional context
+  - Provides base class for all specialized agents
+  - Ensures consistent prompt handling across the system
+  - Centralizes LLM calls for coordinated multi-agent workflow
+- **Architecture**: All specialized agents (Timeline, Comparative, Playbook) inherit from `AgentOrchestrator`
+- **Benefits**: 
+  - Single point of LLM configuration
+  - Consistent error handling and response parsing
+  - Simplified agent implementation
+  - Maintainable and scalable agent architecture
+
 #### **1. Timeline Agent** (`agents/timeline_agent.py`)
 - **Purpose**: Forensic analysis of deal timeline
 - **Key Features**:
@@ -160,6 +182,7 @@ This project implements **Structured JSON Prompting** with **Role-Based Context*
   - Analyzes response time patterns
   - Detects warning signals
   - Generates timeline scores (1-10)
+- **Inheritance**: Extends `AgentOrchestrator` for LLM execution
 - **Input**: Single deal timeline data
 - **Output**: Structured analysis with failure points and recommendations
 
@@ -170,6 +193,7 @@ This project implements **Structured JSON Prompting** with **Role-Based Context*
   - Identifies winning vs losing patterns
   - Provides quantitative benchmarks
   - Generates improvement opportunities
+- **Inheritance**: Extends `AgentOrchestrator` for LLM execution
 - **Input**: Lost deal + RAG-retrieved won deals
 - **Output**: Comparative insights and strategy differences
 
@@ -180,6 +204,7 @@ This project implements **Structured JSON Prompting** with **Role-Based Context*
   - Defines escalation protocols
   - Sets success metrics
   - Provides competitor strategies
+- **Inheritance**: Extends `AgentOrchestrator` for LLM execution
 - **Input**: Timeline analysis + Comparative analysis
 - **Output**: Actionable playbook with specific steps
 
@@ -226,6 +251,8 @@ This project implements **Structured JSON Prompting** with **Role-Based Context*
 
 ### **Agentic AI Workflow**
 ```
+Agent Orchestrator (Central LLM Controller)
+        ↓
 Timeline Agent (Single-deal analysis)
         ↓
 Comparative Agent (Cross-deal patterns) ← RAG Retrieval
@@ -234,9 +261,17 @@ Playbook Agent (Synthesis & actions)
 ```
 
 ### **Multi-Agent Specialization**
+- **Agent Orchestrator**: Centralized LLM communication and configuration
 - **Timeline Agent**: Deep analysis of individual deal progression
 - **Comparative Agent**: Pattern recognition across multiple deals (RAG-powered)
 - **Playbook Agent**: Action synthesis and recommendation generation
+
+### **Agent Orchestration Pattern**
+All specialized agents inherit from `AgentOrchestrator`, which provides:
+- Consistent LLM configuration and API handling
+- Unified prompt execution interface
+- Standardized error handling and response parsing
+- Coordinated multi-agent workflow management
 
 ### **RAG Implementation Details**
 - **Embeddings**: ChromaDB's default sentence-transformers (all-MiniLM-L6-v2)
@@ -311,6 +346,7 @@ streamlit run main.py
 |-----------|------------|---------|
 | **Frontend** | Streamlit | Interactive dashboard and UI |
 | **AI/ML** | Google Gemini API | LLM for agent reasoning and analysis |
+| **Agent Framework** | Custom Orchestrator | Centralized multi-agent coordination |
 | **Vector DB** | ChromaDB | RAG implementation and semantic search |
 | **Visualization** | Plotly | Interactive charts and timelines |
 | **Data Processing** | Pandas | Data manipulation and analysis |
@@ -326,6 +362,7 @@ streamlit run main.py
 
 ### **Enterprise Ready Features**
 - **Modular architecture** for easy extension and maintenance
+- **Centralized orchestration** for consistent agent behavior
 - **API-ready design** for CRM integration (Salesforce, HubSpot, etc.)
 - **Scalable infrastructure** across sales organizations
 - **Configurable system** for different industries and sales processes
