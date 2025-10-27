@@ -33,13 +33,15 @@ Deal Forensics AI Pipeline:
         ├── Comparative Analytics
         └── Actionable Playbooks
 ```
+
+## 🔄 Workflow Diagram
+
 ```mermaid
 graph TD
     A[📥 Input: Lost Deal] --> B[🔍 Timeline Agent]
     B --> C[📊 Timeline Analysis]
     A --> D[🤖 RAG Retrieval]
     D --> E[📚 Similar Won Deals]
-    D --> E[📚 Similar Won Deals ]
     E --> F[⚖️ Comparative Agent]
     F --> G[📈 Comparative Insights]
     C --> H[🎯 Playbook Agent]
@@ -344,4 +346,3 @@ streamlit run main.py
 - Predictive win probability scoring
 - Sales rep performance analytics and coaching
 - Advanced pattern recognition with machine learning
-
