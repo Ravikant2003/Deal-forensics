@@ -41,7 +41,7 @@ graph TD
     A[📥 Input: Lost Deal] --> B[🔍 Timeline Agent]
     B --> C[📊 Timeline Analysis]
     A --> D[🤖 RAG Retrieval]
-    D --> E[📚 Similar Won Deals]
+    D --> E[📚 Similar Won Deals (Checked in ChromDB)]
     E --> F[⚖️ Comparative Agent]
     F --> G[📈 Comparative Insights]
     C --> H[🎯 Playbook Agent]
