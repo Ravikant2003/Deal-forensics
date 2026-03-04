@@ -1,385 +1,297 @@
-# Deal Forensics AI: Post-Mortem Sales Analysis Agent
+# Deal Forensics AI: Post-Mortem Sales Analysis System
 
 ## 🚀 Overview
-**Deal Forensics AI** is an intelligent multi-agent system that performs forensic analysis on lost sales deals. Using RAG and Agentic AI, it identifies why deals were lost, pinpoints exact failure moments, and generates actionable playbooks to prevent future losses.
 
-> **Intelligent Sales Intelligence Platform** - Built with Multi-Agent AI Architecture
+**Deal Forensics AI** is an AI-powered system that performs forensic analysis on lost sales deals to identify why they failed and generate actionable strategies for improvement.
+
+The platform combines **Retrieval-Augmented Generation (RAG)** with a **multi-stage LLM analysis pipeline** to evaluate deal timelines, compare them with historical successful deals, and produce structured playbooks for future sales engagements.
+
+> **Goal:** Transform lost deals into structured learning insights for sales teams.
+
+🎥 Demo: [https://youtu.be/FsLhDLGmB2M](https://youtu.be/FsLhDLGmB2M)
 
 ---
 
-Link for the YouTube Video demonstartion : https://youtu.be/FsLhDLGmB2M
+# 🏗️ System Architecture
 
-## 🏗️ System Architecture
+The system processes sales deal data through a multi-stage analysis pipeline.
 
 ```
-Deal Forensics AI Pipeline:
-    
-    📁 Data Layer
-        │
-        ├── sample_deals.json (Deal timelines & outcomes)
-        └── crm_data.json (Sales intelligence context)
-        │
-    🔍 RAG System (ChromaDB)
-        │
-    🎛️ Agent Orchestrator (Central LLM Controller)
-        │
-    🤖 AI Agent Orchestration
-        │
-        ├── Timeline Agent (Forensic Analysis)
-        ├── Comparative Agent (RAG-Powered Insights) 
-        └── Playbook Agent (Action Generation)
-        │
-    📊 Visualization & Output
-        │
-        ├── Interactive Timelines
-        ├── Comparative Analytics
-        └── Actionable Playbooks
+Deal Forensics AI Pipeline
+
+Data Layer
+ ├── sample_deals.json (deal timelines & outcomes)
+ └── crm_data.json (sales intelligence context)
+
+RAG Retrieval Layer
+ └── ChromaDB vector database
+
+LLM Orchestration Layer
+ └── Agent Orchestrator (central controller)
+
+Analysis Modules
+ ├── Timeline Agent
+ ├── Comparative Agent
+ └── Playbook Agent
+
+Visualization Layer
+ └── Streamlit dashboard
 ```
 
-## 🔄 Workflow Diagram
+---
+
+# 🔄 Workflow
 
 ```mermaid
 graph TD
-    A[📥 Input: Lost Deal] --> B[🎛️ Agent Orchestrator]
-    B --> C[🔍 Timeline Agent]
-    C --> D[📊 Timeline Analysis]
-    A --> E[🤖 RAG Retrieval]
-    E --> F[📚 Similar Won Deals]
-    B --> G[⚖️ Comparative Agent]
+    A[Lost Deal Input] --> B[Agent Orchestrator]
+
+    B --> C[Timeline Agent]
+    C --> D[Timeline Analysis]
+
+    A --> E[RAG Retrieval]
+    E --> F[Similar Won Deals]
+
+    B --> G[Comparative Agent]
     F --> G
-    G --> H[📈 Comparative Insights]
-    D --> I[🎯 Playbook Agent]
+    G --> H[Comparative Insights]
+
+    D --> I[Playbook Agent]
     H --> I
-    B --> I
-    I --> J[🛠️ Actionable Playbook]
-    J --> K[📱 Streamlit Dashboard]
-    
-    style A fill:#e1f5fe
-    style B fill:#ffe0b2
-    style E fill:#fff3e0
-    style I fill:#e8f5e8
-    style K fill:#f3e5f5
+    I --> J[Actionable Sales Playbook]
+
+    J --> K[Streamlit Dashboard]
 ```
 
 ---
 
-## 📁 Project Structure
+# 🤖 Multi-Agent Analysis System
+
+The system uses specialized LLM modules that perform different analytical tasks.
+
+## 1️⃣ Timeline Agent
+
+Performs forensic analysis on the progression of a single deal.
+
+Responsibilities:
+
+* Identify critical failure points
+* Detect warning signals in deal progression
+* Analyze response time delays
+* Generate a timeline score (1–10)
+
+Output:
+
+* Structured analysis of deal breakdown.
+
+---
+
+## 2️⃣ Comparative Agent (RAG-Powered)
+
+Compares the lost deal against historical successful deals.
+
+Process:
+
+1. Retrieve similar successful deals from the vector database.
+2. Compare sales strategies and engagement patterns.
+3. Identify differences between winning and losing approaches.
+
+Output:
+
+* Pattern-based insights and improvement opportunities.
+
+---
+
+## 3️⃣ Playbook Agent
+
+Synthesizes insights from previous agents to generate actionable recommendations.
+
+Responsibilities:
+
+* Create recovery strategies
+* Define escalation protocols
+* Suggest competitor response strategies
+* Generate measurable success metrics
+
+Output:
+
+* Actionable sales playbook.
+
+---
+
+# 🔍 Retrieval-Augmented Generation (RAG)
+
+The system integrates semantic search to enhance analysis.
+
+Workflow:
+
+```
+Deal Context
+   ↓
+Vector Search (ChromaDB)
+   ↓
+Retrieve Similar Won Deals
+   ↓
+Provide Context to Comparative Agent
+   ↓
+Generate Insightful Analysis
+```
+
+### Implementation
+
+* Vector database: **ChromaDB**
+* Embeddings: **sentence-transformers (all-MiniLM-L6-v2)**
+* Retrieval: semantic similarity search with metadata filtering
+
+---
+
+# 📊 Visualization Dashboard
+
+The system provides an interactive **Streamlit dashboard** that displays:
+
+* Deal timeline analysis
+* Comparative performance insights
+* Improvement opportunity rankings
+* AI-generated sales playbooks
+
+Visualization tools:
+
+* Plotly interactive charts
+* Timeline event visualizations
+* Comparative performance graphs
+
+---
+
+# 📁 Project Structure
 
 ```
 deal_forensics/
-├── 🐍 main.py                          # Streamlit application entry point
-├── 📁 agents/                          # AI Agent System
-│   ├── __init__.py
-│   ├── 🎛️ orchestrator.py             # Central LLM controller & agent base
-│   ├── 🕰️ timeline_agent.py           # Forensic timeline analysis
-│   ├── ⚖️ comparative_agent.py        # RAG-powered deal comparison  
-│   └── 🎯 playbook_agent.py           # Actionable playbook generation
-├── 📁 rag/                             # Retrieval-Augmented Generation
-│   ├── __init__.py
-│   └── 🔍 vector_store.py             # ChromaDB vector database operations
-├── 📁 data/                            # Data Layer
-│   ├── 💼 sample_deals.json           # Deal timelines & outcomes
-│   └── 👥 crm_data.json               # Sales intelligence context
-├── 📁 utils/                           # Utilities & Visualization
-│   ├── __init__.py
-│   ├── 📊 visualizer.py               # Plotly charts & timelines
-│   └── 🛠️ helpers.py                  # Utility functions
-├── 📁 config/                          # Configuration
-│   ├── __init__.py
-│   ├── ⚙️ settings.py                 # Environment & API configuration
-│   └── 💬 prompts.yaml                # AI prompt templates
-└── 📄 requirements.txt                 # Python dependencies
+
+main.py
+    Streamlit application entry point
+
+agents/
+    orchestrator.py        LLM controller
+    timeline_agent.py      Deal timeline analysis
+    comparative_agent.py   RAG-based comparison
+    playbook_agent.py      Actionable playbook generation
+
+rag/
+    vector_store.py        ChromaDB retrieval system
+
+data/
+    sample_deals.json      Deal timelines
+    crm_data.json          Sales intelligence data
+
+utils/
+    visualizer.py          Plotly dashboards
+    helpers.py             Utility functions
+
+config/
+    settings.py            Environment configuration
+    prompts.yaml           Prompt templates
+
+requirements.txt
 ```
 
 ---
 
+# 🧠 Prompt Engineering Strategy
 
+The system uses **structured prompting** and **role-based contexts** for each analysis module.
 
-## 🎯 Prompt Engineering Architecture
+| Agent             | Purpose                                       |
+| ----------------- | --------------------------------------------- |
+| Timeline Agent    | Forensic timeline evaluation                  |
+| Comparative Agent | Pattern analysis using retrieved deal history |
+| Playbook Agent    | Generation of structured action plans         |
 
-This project implements **Structured JSON Prompting** with **Role-Based Context** across a multi-agent system.
+Key prompt design principles:
 
-### **Agent-Specific Prompt Design**
-
-#### **Timeline Agent** - Analytical Prompting
-```python
-# Forensic analysis with structured output
-- Critical moment identification
-- Warning signal detection
-- Failure point analysis
-- Response time evaluation
-- Timeline scoring (1-10)
-```
-
-#### **Comparative Agent** - RAG-Augmented Prompting
-```python
-# Comparative analysis with retrieved context
-- Strategy comparison (won vs lost)
-- Response time benchmarking
-- Competitive positioning analysis
-- Success factor identification
-```
-
-#### **Playbook Agent** - Action-Oriented Prompting
-```python
-# Actionable output generation
-- Immediate action steps
-- Trigger-based responses
-- Escalation protocols
-- Success metrics definition
-```
-
-### **Key Prompt Engineering Features**
-
-| Feature | Implementation | Benefit |
-|---------|---------------|---------|
-| **Structured Output** | Enforced JSON schema | Programmatic processing |
-| **Role-Based Context** | Specialized agent personas | Domain-specific reasoning |
-| **Constrained Generation** | Defined value ranges | Quality control |
-| **RAG Integration** | Context-augmented prompts | Historical pattern matching |
-
-### **Prompt Quality Highlights**
-✅ Consistent structure across all agents  
-✅ Sales domain-specific terminology  
-✅ Action-oriented, measurable outputs  
-✅ Production-ready JSON responses  
-✅ Multi-step reasoning capability
-
-
-
-
-## 🔍 Detailed File Descriptions
-
-### **Core Application**
-- **`main.py`** - Streamlit web application with interactive dashboard
-  - Deal selection interface
-  - Multi-agent orchestration
-  - Real-time analysis visualization
-  - Results presentation layer
-
-
-### **🤖 AI Agents System**
-
-#### **Agent Orchestrator** (`agents/orchestrator.py`)
-- **Purpose**: Central controller for all agent interactions and LLM communication
-- **Key Features**:
-  - Configures Gemini AI model with API key and model selection
-  - Generates responses for prompts with optional context
-  - Provides base class for all specialized agents
-  - Ensures consistent prompt handling across the system
-  - Centralizes LLM calls for coordinated multi-agent workflow
-- **Architecture**: All specialized agents (Timeline, Comparative, Playbook) inherit from `AgentOrchestrator`
-- **Benefits**: 
-  - Single point of LLM configuration
-  - Consistent error handling and response parsing
-  - Simplified agent implementation
-  - Maintainable and scalable agent architecture
-
-#### **1. Timeline Agent** (`agents/timeline_agent.py`)
-- **Purpose**: Forensic analysis of deal timeline
-- **Key Features**:
-  - Identifies critical failure moments
-  - Analyzes response time patterns
-  - Detects warning signals
-  - Generates timeline scores (1-10)
-- **Inheritance**: Extends `AgentOrchestrator` for LLM execution
-- **Input**: Single deal timeline data
-- **Output**: Structured analysis with failure points and recommendations
-
-#### **2. Comparative Agent** (`agents/comparative_agent.py`) 
-- **Purpose**: RAG-powered comparison with successful deals
-- **Key Features**:
-  - Leverages vector database retrieval
-  - Identifies winning vs losing patterns
-  - Provides quantitative benchmarks
-  - Generates improvement opportunities
-- **Inheritance**: Extends `AgentOrchestrator` for LLM execution
-- **Input**: Lost deal + RAG-retrieved won deals
-- **Output**: Comparative insights and strategy differences
-
-#### **3. Playbook Agent** (`agents/playbook_agent.py`)
-- **Purpose**: Generates actionable sales playbooks
-- **Key Features**:
-  - Creates trigger-based responses
-  - Defines escalation protocols
-  - Sets success metrics
-  - Provides competitor strategies
-- **Inheritance**: Extends `AgentOrchestrator` for LLM execution
-- **Input**: Timeline analysis + Comparative analysis
-- **Output**: Actionable playbook with specific steps
-
-### **🔍 RAG System** (`rag/vector_store.py`)
-- **Vector Database**: ChromaDB with sentence-transformers embeddings
-- **Data Source**: `sample_deals.json` timeline data
-- **Retrieval Method**: Semantic similarity search
-- **Usage**: Finds similar won deals for comparative analysis
-- **Key Operations**: Store deals, search similar deals, metadata filtering
-
-### **📊 Visualization** (`utils/visualizer.py`)
-- Interactive timeline charts with critical moments
-- Comparative analysis bar charts
-- Improvement opportunity prioritization
-- Success metric gauges
-- Color-coded event visualization
-
-### **🛠️ Utilities** (`utils/helpers.py`)
-- Environment setup and validation
-- Data processing and formatting
-- Analysis persistence
-- Demo support functions
-
-### **📁 Data Layer**
-- **`sample_deals.json`**: 4 lost deals + 4 won deals with detailed timelines, industries, values, and competitor data
-- **`crm_data.json`**: Sales team performance, competitor intelligence, performance benchmarks, playbook templates
-
-### **⚙️ Configuration**
-- **`config/settings.py`**: API keys and environment configuration
-- **`config/prompts.yaml`**: AI prompt templates for consistent agent behavior
+* Structured JSON outputs
+* Domain-specific sales context
+* Multi-step reasoning
+* Controlled value ranges for scoring
 
 ---
 
-## 🧠 RAG + Agentic AI Implementation
+# 🚀 Quick Start
 
-### **RAG Architecture**
-```python
-# RAG Flow in Comparative Agent
-1. Query: "TechCorp Inc" + deal context
-2. Retrieval: ChromaDB finds similar won deals using semantic similarity
-3. Augmentation: Retrieved deals fed to AI agent as context
-4. Generation: Comparative insights with historical context and patterns
-```
+## 1️⃣ Clone the Repository
 
-### **Agentic AI Workflow**
-```
-Agent Orchestrator (Central LLM Controller)
-        ↓
-Timeline Agent (Single-deal analysis)
-        ↓
-Comparative Agent (Cross-deal patterns) ← RAG Retrieval
-        ↓  
-Playbook Agent (Synthesis & actions)
-```
-
-### **Multi-Agent Specialization**
-- **Agent Orchestrator**: Centralized LLM communication and configuration
-- **Timeline Agent**: Deep analysis of individual deal progression
-- **Comparative Agent**: Pattern recognition across multiple deals (RAG-powered)
-- **Playbook Agent**: Action synthesis and recommendation generation
-
-### **Agent Orchestration Pattern**
-All specialized agents inherit from `AgentOrchestrator`, which provides:
-- Consistent LLM configuration and API handling
-- Unified prompt execution interface
-- Standardized error handling and response parsing
-- Coordinated multi-agent workflow management
-
-### **RAG Implementation Details**
-- **Embeddings**: ChromaDB's default sentence-transformers (all-MiniLM-L6-v2)
-- **Retrieval**: Semantic similarity search with metadata filtering
-- **Context Usage**: Retrieved won deals provide benchmark patterns
-- **Integration**: Seamlessly feeds into Comparative Agent for enhanced insights
-
----
-
-## 🚀 Quick Start
-
-### **1. Installation**
 ```bash
 git clone <repository-url>
 cd deal_forensics
+```
+
+## 2️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-### **2. Environment Setup**
+## 3️⃣ Configure Environment
+
+Set your Gemini API key:
+
 ```bash
-export GEMINI_API_KEY="your-google-ai-api-key"
+export GEMINI_API_KEY="your-api-key"
 ```
 
-### **3. Run Application**
+## 4️⃣ Run the Application
+
 ```bash
 streamlit run main.py
 ```
 
-### **4. Usage Flow**
-1. **Select** a lost deal from sidebar
-2. **Click** "Run Forensic Analysis" 
-3. **View** timeline analysis with failure points
-4. **Explore** comparative insights vs won deals
-5. **Implement** generated playbook actions
+## 5️⃣ Usage
+
+1. Select a lost deal from the sidebar.
+2. Run forensic analysis.
+3. Explore timeline insights and comparative patterns.
+4. Review the generated playbook.
 
 ---
 
-## 💡 Key Features
+# 🛠️ Technology Stack
 
-### **🔍 Forensic Analysis**
-- Pinpoints exact moment deals went wrong
-- Identifies response time failures
-- Detects early warning signals
-- Scores timeline management (1-10)
-- Visual timeline with critical events
-
-### **📊 Comparative Intelligence** 
-- RAG-powered pattern matching across deal history
-- Benchmarking against successful deals
-- Industry-specific insights and patterns
-- Competitor strategy analysis
-- Quantitative performance comparisons
-
-### **🎯 Actionable Outputs**
-- Immediate priority actions with owners and timelines
-- Trigger-based response protocols
-- Success measurement metrics
-- Escalation procedures
-- Competitor-specific strategies
-
-### **📈 Business Impact**
-- **Data-driven sales coaching** and improvement
-- **Continuous learning system** from every deal
-- **Scalable across sales teams** and organizations
-- **Proactive risk identification** in active deals
+| Component       | Technology            |
+| --------------- | --------------------- |
+| Frontend        | Streamlit             |
+| LLM             | Google Gemini         |
+| Vector Database | ChromaDB              |
+| Embeddings      | Sentence Transformers |
+| Visualization   | Plotly                |
+| Data Processing | Pandas                |
+| Configuration   | YAML                  |
 
 ---
 
-## 🛠️ Technical Stack
+# 📈 Business Impact
 
-| Component | Technology | Purpose |
-|-----------|------------|---------|
-| **Frontend** | Streamlit | Interactive dashboard and UI |
-| **AI/ML** | Google Gemini API | LLM for agent reasoning and analysis |
-| **Agent Framework** | Custom Orchestrator | Centralized multi-agent coordination |
-| **Vector DB** | ChromaDB | RAG implementation and semantic search |
-| **Visualization** | Plotly | Interactive charts and timelines |
-| **Data Processing** | Pandas | Data manipulation and analysis |
-| **Configuration** | PyYAML | Prompt templates and settings |
+Sales teams often lose deals without understanding why.
 
----
+Deal Forensics AI enables:
 
-## 🎯 Business Value Proposition
-
-**Problem**: Sales teams lose 60-70% of deals without systematic learning
-**Solution**: Automated forensic analysis with actionable, data-driven insights
-**Impact**: Transform lost deals into learning opportunities for continuous improvement
-
-### **Enterprise Ready Features**
-- **Modular architecture** for easy extension and maintenance
-- **Centralized orchestration** for consistent agent behavior
-- **API-ready design** for CRM integration (Salesforce, HubSpot, etc.)
-- **Scalable infrastructure** across sales organizations
-- **Configurable system** for different industries and sales processes
+* Structured analysis of deal failures
+* Data-driven sales coaching
+* Identification of winning engagement patterns
+* Continuous learning from historical deal data
 
 ---
 
-## 🔮 Future Enhancements
+# 🔮 Future Improvements
 
-### **Short-term Roadmap**
-- Custom sentence-transformers embeddings for domain specificity
-- Hybrid search implementation (vector + keyword + semantic)
-- RAG evaluation metrics and quality assessment
-- A/B testing framework for retrieval strategies
+Planned enhancements include:
 
-### **Long-term Vision**
-- CRM integrations (Salesforce, HubSpot APIs)
-- Real-time deal monitoring and alerting
-- Predictive win probability scoring
-- Sales rep performance analytics and coaching
-- Advanced pattern recognition with machine learning
+* Hybrid retrieval (vector + keyword)
+* Domain-specific embedding models
+* Evaluation metrics for RAG quality
+* CRM integrations (Salesforce / HubSpot)
+* Predictive win probability modeling
+
+---
+
+# 📜 License
+
+MIT License
