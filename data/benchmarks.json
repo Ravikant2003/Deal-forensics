@@ -1,0 +1,99 @@
+{
+  "Technology": {
+    "avg_response_days": 1.2,
+    "avg_deal_duration_days": 21,
+    "industry_win_rate": 0.38,
+    "best_practices": [
+      "Respond to initial inquiry within 2 hours",
+      "Send proposal within 24 hours of demo",
+      "Follow up within 48 hours of any silence",
+      "Customize demos to specific technical stack"
+    ],
+    "red_flags": [
+      "No response for 5+ days",
+      "Competitor mention without immediate counter",
+      "Budget discussion without ROI data"
+    ]
+  },
+  "SaaS": {
+    "avg_response_days": 0.9,
+    "avg_deal_duration_days": 14,
+    "industry_win_rate": 0.42,
+    "best_practices": [
+      "Same-day qualification calls",
+      "Free trial or pilot within 3 days",
+      "Technical integration support upfront",
+      "Dedicated Slack/Teams channel for prospects"
+    ],
+    "red_flags": [
+      "No technical demo within first week",
+      "Integration concerns unresolved after 3 days",
+      "Champion not identified by day 5"
+    ]
+  },
+  "Enterprise": {
+    "avg_response_days": 2.1,
+    "avg_deal_duration_days": 45,
+    "industry_win_rate": 0.28,
+    "best_practices": [
+      "Multi-stakeholder mapping within first week",
+      "C-level engagement by week 3",
+      "Legal/security documentation ready upfront",
+      "Phased implementation proposal",
+      "Executive sponsor identified"
+    ],
+    "red_flags": [
+      "Single stakeholder engagement only",
+      "Legal review stalled beyond 10 days",
+      "No executive sponsor after week 2"
+    ]
+  },
+  "Retail": {
+    "avg_response_days": 1.5,
+    "avg_deal_duration_days": 18,
+    "industry_win_rate": 0.44,
+    "best_practices": [
+      "Pilot program offer within first week",
+      "ROI calculation with retail-specific metrics",
+      "Seasonal timing awareness",
+      "Reference customers in same vertical"
+    ],
+    "red_flags": [
+      "Generic (non-retail) demo",
+      "Pilot not offered within 5 days",
+      "Missing industry-specific case studies"
+    ]
+  },
+  "E-commerce": {
+    "avg_response_days": 1.0,
+    "avg_deal_duration_days": 12,
+    "industry_win_rate": 0.47,
+    "best_practices": [
+      "Integration demo within 2 days",
+      "Performance/speed benchmarks ready",
+      "Competitive pricing with ROI",
+      "Quick onboarding guarantee"
+    ],
+    "red_flags": [
+      "Slow integration response",
+      "No performance data",
+      "Delayed proposal after demo"
+    ]
+  },
+  "General": {
+    "avg_response_days": 1.5,
+    "avg_deal_duration_days": 21,
+    "industry_win_rate": 0.38,
+    "best_practices": [
+      "Respond to all inquiries within 4 hours",
+      "Follow up within 48 hours of silence",
+      "Customize proposals to specific needs",
+      "Identify budget and timeline early"
+    ],
+    "red_flags": [
+      "No response for 4+ days",
+      "Competitor unaddressed",
+      "Budget not qualified"
+    ]
+  }
+}
